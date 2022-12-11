@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import MoviesContainer from "./Components/MoviesContainer.tsx";
+import ShowsContainer from "./Components/ShowsContainer.tsx";
+import MovieDetails from "./Components/MovieDetails.tsx";
+import ShowDetails from "./Components/ShowDetails.tsx";
+import Reviews from "./Components/ReviewsContainer.tsx";
+import { Route, Routes, Navigate } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path='/movies' element={<MoviesContainer />}/>
+        <Route path='/tv' element={<ShowsContainer />}/>
+        <Route path='/movie/:id' element={<MovieDetails />}/>
+        <Route path='/reviews/:id/:content/:title' element={<Reviews />} />
+        <Route path='/tv/:id' element={<ShowDetails />}/>
+        <Route path="*" element={<Navigate replace to="/tv" />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

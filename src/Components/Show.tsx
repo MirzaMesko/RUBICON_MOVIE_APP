@@ -18,13 +18,11 @@ const Show: React.FC<Props> = ({ show }: Props) => {
     : "https://i0.wp.com/www.dunstableroadrunners.org/wp-content/uploads/2019/04/image-coming-soon.jpg";
   return (
     <div className="item" key={show.id}>
-      <NavLink to={`/tv/${show.id}`} className="App-link">
-        <img
-          src={image}
-          alt=""
-          className="image"
-        />
-        <p className="title">{show.name}</p>
+      <NavLink to={`/tv/${show.id}`} className="App-link" data-testid="link">
+        <img src={image} alt="" className="image" data-testid="image" />
+        <p className="title" data-testid="title">
+          {show.name}
+        </p>
       </NavLink>
     </div>
   );

@@ -6,9 +6,10 @@ export default class Header extends PureComponent {
     return (
       <div className="App">
         <header className="App-header">
-          <p>RUBICON MOVIE APP</p>
+          <p data-testid='header'>RUBICON MOVIE APP</p>
           <div className="Header-links-container">
             <NavLink
+            data-testid='link-to-movies'
               to={"/movies"}
               className={({ isActive }) =>
                 isActive ? "Header-link" : "Header-link-active"
@@ -18,6 +19,7 @@ export default class Header extends PureComponent {
             </NavLink>
             <NavLink
               to={"/tv"}
+              data-testid='link-to-tv'
               className={({ isActive }) =>
                 isActive ? "Header-link" : "Header-link-active"
               }

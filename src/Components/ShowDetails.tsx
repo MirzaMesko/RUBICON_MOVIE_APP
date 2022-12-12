@@ -2,9 +2,7 @@ import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 
-type Props = {};
-
-const ShowDetails = (props: Props) => {
+const ShowDetails: React.FC = () => {
   const { id } = useParams();
   const [show, setShow] = React.useState<any>({});
   const [reviews, setReviews] = React.useState<any>({});
@@ -53,8 +51,8 @@ const ShowDetails = (props: Props) => {
 
         <p className="title">{show.name}</p>
         <div className="info-container">
-          <p className="info">Year: {show.release_date?.slice(0, 4)}</p>
-          <p className="info">Runtime: {show.runtime} mins</p>
+          <p className="info">Year: {show.first_air_date?.slice(0, 4)} - {show.last_air_date?.slice(0, 4)}</p>
+          <p className="info">Runtime: {show.episode_run_time} mins</p>
           <p className="info">Rating: {show.vote_average?.toFixed(1)}</p>
           <NavLink
             to={`/reviews/${id}/tv/${show.name}`}
